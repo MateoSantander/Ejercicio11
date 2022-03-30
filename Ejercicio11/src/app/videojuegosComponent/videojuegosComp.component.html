@@ -1,0 +1,46 @@
+<h1>Tabla de Videojuegos</h1>
+
+<div class="tabla" id="tablajuegos">
+  <table>    
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Compañia</th>
+            <th>Rating</th> 
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let game of arrayVideojuegos" (click)="operar(game)">
+            <td>{{ game.id }}</td>
+            <td>{{ game.titulo }}</td>
+            <td>{{ game.compania }}</td>
+            <td>{{ game.rating }}</td>
+        </tr>
+    </tbody>
+  </table> 
+
+<div class="operaciones" id="button"> 
+  <button (click)="insertar()">Insertar Juego</button> &nbsp;
+  <button (click)="eliminar()">Borrar Juego</button> &nbsp;
+  <button (click)="modificar()">Modificar Juego</button> &nbsp;
+  <button (click)="limpiar()">Limpiar</button>
+</div>
+
+<br/>
+
+<div class="camposInfo" id="campos">
+
+    <label for="idVideojuego">Id</label>
+    <input id="campoId" disabled="disabled" value="{{id==0 ?'':id}}"/>  &nbsp;
+
+    <input id="campoTitulo" placeholder="Titulo" [(ngModel)]="titulo">  &nbsp;
+  
+    <input id="campoCompania" placeholder="Compañia" [(ngModel)]="compania"/>  &nbsp;
+    
+    <input id="campoRating" placeholder="Valoracion" [(ngModel)]="rating"/> <p>Si se introduce un rating con número no comprendido entre 0 y 10, se añadirá -1 en su campo.</p>
+
+</div>    
+  
+  
